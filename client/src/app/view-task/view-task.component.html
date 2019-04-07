@@ -1,0 +1,92 @@
+<div class="container border">
+  <div style="text-align: center; border:1px; background-color: blue;">
+  <h6>View Task</h6>
+</div>
+  <form #userForm="ngForm">
+      <div class="form-group">  
+          Task Name:
+      <input type="text" id="task" name="task" class="form-control"
+      minlength="4" 
+      [(ngModel)]="search.TaskName" >
+</div>
+<div class="form-group">  
+    Parent Task:
+      <input type="text" id="parenttask" name="parenttask" class="form-control"
+      minlength="4" 
+      [(ngModel)]="search.ParentTask" >
+</div>
+
+<div class="form-group">  
+    Priority From:
+    <input type="range" min="0" max="100" [(ngModel)]="search.PriorityFrom"   name="priorityfrom" class="form-control">
+    {{search.PriorityFrom}}
+</div>
+
+    <div class="form-group">  
+        Priority To:
+        <input type="text" [(ngModel)]="search.PriorityTo"   name="priorityto" class="form-control">
+        </div>
+        <div class="form-group">
+            Start Date: 
+            <input type="date" [(ngModel)]="search.StartDate" name="startdate" class="form-control"  >
+          </div>
+          <div class="form-group">
+              End Date: 
+              <input type="date" [(ngModel)]="search.EndDate" name="enddate" class="form-control"  >
+            </div>  
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+            </div> 
+    <div>
+    <table class="table">
+        <thead class="thead-dark">
+       <tr>
+        <th>
+            Task
+        </th>
+        <th>
+            Parent Task
+            </th>
+            <th>
+                Priority
+            </th>
+            <th>
+                Start Date
+            </th>
+            <th>
+                End Date
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>  
+        </thead>
+        <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>
+                <input type="hidden" name="taskid" class="form-control" [(ngModel)]="task.Task_Id" />
+                {{task.Task_Name}}                
+            </td>
+            <td>
+                <input type="hidden" name="parentid" class="form-control" [(ngModel)]="task.Parent_Id" />
+                {{task.Parent_Task}}     
+            </td>
+            <td>
+                {{task.Priority}}
+            </td>
+            <td>
+                {{task.Start_Date}}
+            </td>
+            <td>
+                {{task.End_Date}}
+            </td>
+            <td>
+                <input type="button" id="btnedit" value="Edit" class="form-control" (click)="onEditTask(task.Task_Id)" />
+                <input type="button" id="btnendtask" value="End Task"  class="form-control" (click)="onEndTask(task.Task_Id)" />
+            </td>
+        </tr> </tbody> 
+    </table>    
+    </div>           
+  </form>
+</div>
+
