@@ -1,0 +1,17 @@
+nbench.runner.exe PerformanceTests.dll
+Executing Benchmarks in PerformanceTests.dll
+------------ STARTING PerformanceTests.TaskPerfTests+PerformanceTests ----------
+--------------- BEGIN RUN ---------------
+Elapsed: 00:00:00.9421802
+Elapsed Time - ms: 942.00 ,ms: /s 999.81 , ns / ms: 10,00,191.37
+--------------- END RUN ---------------
+
+--------------- RESULTS: PerformanceTests.TaskPerfTests+PerformanceTests ---------------
+--------------- DATA ---------------
+Elapsed Time: Max: 942.00 ms, Average: 942.00 ms, Min: 942.00 ms, StdDev: 0.00 ms
+Elapsed Time: Max / s: 999.81 ms, Average / s: 999.81 ms, Min / s: 999.81 ms, StdDev / s: 0.00 ms
+
+--------------- ASSERTIONS ---------------
+[PASS] Expected Elapsed Time to must be less than or equal to 5,000.00 ms; actual value was 942.00 ms.
+
+------------ FINISHED PerformanceTests.TaskPerfTests+PerformanceTests ----------
