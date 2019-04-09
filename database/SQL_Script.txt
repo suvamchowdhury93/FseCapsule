@@ -1,0 +1,41 @@
+Database Creation
+CREATE DATABASE [TASKMANAGER]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'TaskManagerDb', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\TaskManagerDb.mdf' , SIZE = 5120KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'TaskManagerDb_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\DATA\TaskManagerDb_log.ldf' , SIZE = 2048KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+
+Table Creation
+USE [TASKMANAGER]
+GO
+
+/****** Object:  Table [dbo].[Task]    Script Date: 09-04-2019 14:12:55 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Task](
+	[Task_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Parent_ID] [bigint] NULL,
+	[Task_Name] [varchar](50) NULL,
+	[Start_Date] [date] NULL,
+	[End_Date] [date] NULL,
+	[Priority] [int] NULL,
+ CONSTRAINT [PK_Task] PRIMARY KEY CLUSTERED 
+(
+	[Task_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
